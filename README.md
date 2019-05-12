@@ -1,4 +1,4 @@
-# Dark Splitz - Frameworksploit
+# Dark Splitz - Exploit Framework
 This tools is continued from Nefix, DirsPy and Xmasspy project.
 
 # Installation
@@ -29,6 +29,8 @@ Will work fine in the debian shade operating system, like Backbox, Ubuntu or Kal
 - Vhost scanner (bypass cloudflare)
 - Mass bruteforce (wordpress)
 - Interactive msfrpc client
+- Google dorker
+- Subdomain enumeration
 
 # Exploit web application
 - plUpload file upload

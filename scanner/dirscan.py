@@ -5,7 +5,6 @@
 from datetime import datetime
 from time import sleep, strftime
 from concurrent.futures import ThreadPoolExecutor
-from fake_useragent import UserAgent
 import requests, sys, urllib3, argparse
 import os, resource
 
@@ -26,7 +25,7 @@ def sizeof(num, suffix='B'):
         num /= 1024.0
 
 def rikues(alamat, leng):
-    user_agent = {'User-agent': UserAgent().random}
+    user_agent = {'User-agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'}
     r = requests.get(str(alamat), headers = user_agent, timeout = 5, allow_redirects = False, verify = False)
     num = int(len(r.text))
     status = r.status_code
@@ -68,12 +67,10 @@ def scanner(url, wordlist):
         print('| Time     | Info          | URL                                              |')
         print('===============================================================================')
         executor = ThreadPoolExecutor(max_workers=100)
-        futures = []
         for line in file:
             try:
                 target = str(url) + str(line)
                 a = executor.submit(rikues, target, leng)
-                futures.append(a)
                 no = no + 1
                 jumlah = ( no * 100 ) / lcount
                 sys.stdout.flush()

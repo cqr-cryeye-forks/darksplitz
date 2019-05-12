@@ -2,11 +2,10 @@
 
 which pkg > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-  pkg install libffi-dev python nmap dnsutils
+  pkg install libffi-dev python python-dev make clang nmap dnsutils
   pip3 install requests
   pip3 install PySquashfsImage
   pip3 install ropper
-  pip3 install fake_useragent
   pip3 install netaddr
   pip3 install scapy
   pip3 install netifaces
@@ -29,7 +28,6 @@ else
   pip3 install requests
   pip3 install PySquashfsImage
   pip3 install ropper
-  pip3 install fake_useragent
   pip3 install netaddr
   pip3 install scapy
   pip3 install netifaces

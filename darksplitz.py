@@ -19,12 +19,10 @@ modul = '''
      -----                   -----------
      extract_credential      Extract mikrotik credential (user.dat)
      password_generator      Password generator
-     reverse_ip              Reverse IP lookup
      arpsniff                Mac address sniffer
      md5crack                Online md5 cracker
      maclookup               Mac address lookup
      maclookup_mass          Mass mac address lookup
-     wayback                 Collecting url from web.archive.org
      drkshell                Php web backdoor (Dark Shell)
 
      Exploit                 Description
@@ -53,6 +51,13 @@ modul = '''
      wpslug                  Mass bruteforce (wordpress)
      wpslug_file             Mass bruteforce (wordpress)
      massping                Mass ping ip address
+
+     Enumeration             Description
+     -----------             -----------
+     wayback                 Collecting url from web.archive.org
+     reverse_ip              Reverse IP lookup
+     gdork                   Google dorker
+     subdomain_enum          Subdomain enumeration
 '''
 
 class MyPrompt(Cmd):
@@ -70,11 +75,6 @@ class MyPrompt(Cmd):
         msfrpc()
 
     # Tools
-    def do_reverse_ip(self, args):
-        """[+] Reverse IP lookup\n[!] exe : reverse_ip 1.1.1.1"""
-        from tools.reverseip import reverse_ip
-        reverse_ip(args)
-
     def do_password_generator(self, args):
         """[+] Password generator"""
         from tools.passgen import password_generator
@@ -104,11 +104,6 @@ class MyPrompt(Cmd):
         """[+] Mass mac address lookup\n[!] exe : maclookup_mass /tmp/mac.txt"""
         from tools.maclookup import filecheck
         filecheck(args)
-
-    def do_wayback(self, args):
-        """[+] Collecting url from web.archive.org\n[!] exe : wayback www.example.com"""
-        from tools.wayback import wayback
-        wayback(args)
 
     def do_drkshell(self, args):
         """[+] Php web backdoor (Dark Shell)\n[!] exe : drkshell http://127.0.0.1/shell.php"""
@@ -164,6 +159,11 @@ class MyPrompt(Cmd):
             except: print('[!] Wrong input...')
 
     # Scanner
+    def do_dirs(self, args):
+        """[+] Directory scanner (global wordlist)\n[!] exe : dirscan http://target.com/"""
+        from scanner.dirs import directory_scanner
+        directory_scanner(args)
+
     def do_mac_discover(self, args):
         """[+] Discovering Mikrotik device (MAC Server)"""
         from scanner.MACServerDiscover import mac_discover
@@ -238,6 +238,27 @@ class MyPrompt(Cmd):
         """[+] Mass ping ip address\n[!] exe : massping 1.1.1.0/24"""
         from scanner.massping import massping
         massping(args)
+
+    # Enum
+    def do_gdork(self, args):
+        """[+] Google dorker\n[!] exe : gdork <dork>"""
+        from enumeration.gdork import googledork
+        googledork(args)
+
+    def do_reverse_ip(self, args):
+        """[+] Reverse IP lookup\n[!] exe : reverse_ip 1.1.1.1"""
+        from enumeration.reverseip import reverse_ip
+        reverse_ip(args)
+
+    def do_wayback(self, args):
+        """[+] Collecting url from web.archive.org\n[!] exe : wayback www.example.com"""
+        from enumeration.wayback import wayback
+        wayback(args)
+
+    def do_subdomain_enum(self, args):
+        """[+] Subdomain enumeration\n[!] exe : subdomain_enum example.com"""
+        from enumeration.subenum import subdomainenum
+        subdomainenum(args)
 
     def do_exit(self, args):
         print("[!] Exiting program...")

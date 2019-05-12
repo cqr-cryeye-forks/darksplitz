@@ -10,7 +10,7 @@ def prog():
     sys.stdout.write('[x] Scanning...\r')
 
 def cekhost(subdomain):
-    x = subprocess.getoutput('host ' + subdomain)
+    x = subprocess.getoutput('timeout 5 host ' + subdomain)
     for d in x.split('\n'):
         if 'has address' in d:
             ip = d.split(' ')[3]
