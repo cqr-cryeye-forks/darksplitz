@@ -285,11 +285,12 @@ def main():
         banner += "|____/ \__,_|_|  |_|\_\ |____/| .__/|_|_|\__/___|\n"
         banner += "                              |_|\n"
         banner += "        Frameworksploit\n"
-        banner += "   Backbox Indonesia @ 2018 - 2019\n\n"
+        banner += "   Backbox Indonesia @ 
+        \n\n"
         banner += "[+] Msfrpc => {}".format(msfrpc)
         prompt = MyPrompt()
         prompt.prompt = '\r[?] darksplitz >> '
-        prompt.cmdloop(banner)
+        #prompt.cmdloop(banner)
     except KeyboardInterrupt:
         print("\r[!] Exiting program...")
         raise SystemExit
