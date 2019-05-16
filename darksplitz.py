@@ -278,19 +278,19 @@ def main():
         cek = subprocess.getoutput('netstat -ntlp')
         if '127.0.0.1:55553' in cek: msfrpc = True
         else: msfrpc = False
-        banner = " ____             _      ____        _ _ _\n"
-        banner += "|  _ \  __ _ _ __| | __ / ___| _ __ | (_) |_ ____\n"
-        banner += "| | | |/ _` | '__| |/ / \___ \| '_ \| | | __|_  /\n"
-        banner += "| |_| | (_| | |  |   <   ___) | |_) | | | |_ / /\n"
-        banner += "|____/ \__,_|_|  |_|\_\ |____/| .__/|_|_|\__/___|\n"
-        banner += "                              |_|\n"
-        banner += "        Frameworksploit\n"
-        banner += "   Backbox Indonesia @ 
-        \n\n"
+        #banner = " ____             _      ____        _ _ _\n"
+        #banner += "|  _ \  __ _ _ __| | __ / ___| _ __ | (_) |_ ____\n"
+        #banner += "| | | |/ _` | '__| |/ / \___ \| '_ \| | | __|_  /\n"
+        #banner += "| |_| | (_| | |  |   <   ___) | |_) | | | |_ / /\n"
+        #banner += "|____/ \__,_|_|  |_|\_\ |____/| .__/|_|_|\__/___|\n"
+        #banner += "                              |_|\n"
+        #banner += "        Frameworksploit\n"
+        #banner += "   Backbox Indonesia @ 
+        #\n\n"
         banner += "[+] Msfrpc => {}".format(msfrpc)
         prompt = MyPrompt()
         prompt.prompt = '\r[?] darksplitz >> '
-        #prompt.cmdloop(banner)
+        prompt.cmdloop(banner)
     except KeyboardInterrupt:
         print("\r[!] Exiting program...")
         raise SystemExit
